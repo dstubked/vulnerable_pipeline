@@ -13,8 +13,8 @@ node {
         app = docker.build("dstubked/docker-test")
     }
     
-    stage ('Aqua Microscanner') {
-        aquaMicroscanner imageName: 'dstubked/docker-test', notCompliesCmd: '', onDisallowed: 'fail', outputFormat: 'html'
+    stage ('Aqua Scan') {
+        aqua locationType: 'hosted', registry: 'Docker Hub', hostedImage: 'dstubked/docker-test',  notCompliesCmd: '', onDisallowed: 'ignore', hideBase: false, showNegligible: false
     }
     
     stage('Push image') {
