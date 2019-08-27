@@ -34,5 +34,5 @@ node {
             sh "hostname"
             sh "docker run -v /var/run/docker.sock:/var/run/docker.sock registry.aquasec.com/scanner:4.2 scan -H http://aquasec-demo658-vm0.eastus.cloudapp.azure.com -U jenkins_scanner -P P@ssword --registry 'Docker Hub' dstubked/docker-test:latest --htmlfile results.html"
     }
-    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '', reportFiles: 'results.html', reportName: 'Aqua HTML Report', reportTitles: ''])
+    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/opt/aquasec', reportFiles: 'results.html', reportName: 'Aqua HTML Report', reportTitles: ''])
 }
