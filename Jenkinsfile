@@ -13,9 +13,9 @@ node {
         app = docker.build("dstubked/docker-test")
     }
     
-    stage ('Aqua Scan') {
+    /*stage ('Aqua Scan') {
         aqua locationType: 'hosted', registry: 'Docker Hub', hostedImage: 'dstubked/docker-test',  notCompliesCmd: '', onDisallowed: 'fail', hideBase: false, showNegligible: false
-    }
+    }*/
     
     stage('Push image') {
         /* Finally, we'll push the image with two tags:
