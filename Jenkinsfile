@@ -32,6 +32,6 @@ node {
         /* scan image using scanner CLI */
             sh "echo Hello from the shell"
             sh "hostname"
-            sh "docker run -v /var/run/docker.sock:/var/run/docker.sock registry.aquasec.com/scanner:4.2 scan -H http://aquasec-demo658-vm0.eastus.cloudapp.azure.com -U jenkins_scanner -P P@ssword --registry "Docker Hub" docker-test:latest --html"
+            sh "docker run -v /var/run/docker.sock:/var/run/docker.sock registry.aquasec.com/scanner:4.2 scan -H http://aquasec-demo658-vm0.eastus.cloudapp.azure.com -U jenkins_scanner -P P@ssword --registry 'Docker Hub' dstubked/docker-test:latest --html"
     }
 }
