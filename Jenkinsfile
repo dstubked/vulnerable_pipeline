@@ -22,7 +22,7 @@ node {
             sh "echo $WORKSPACE"
             sh "echo $JENKINS_HOME"
             sh "docker run -e BUILD_JOB_NAME=ExampleVulnerablePipeline -e BUILD_URL=$BUILD_URL -e BUILD_NUMBER=$BUILD_NUMBER --rm -v /var/run/docker.sock:/var/run/docker.sock registry.aquasec.com/scanner:4.2 scan --host http://aquasec-demo658-vm0.eastus.cloudapp.azure.com --local dstubked/docker-test:latest --no-verify --html --user jenkins_scanner --password P@ssword > scan.html"
-            /*archiveArtifacts '$BUILD_NUMBER.html'*/
+            archiveArtifacts 'scan.html'
     }
     
     stage('Push image') {
