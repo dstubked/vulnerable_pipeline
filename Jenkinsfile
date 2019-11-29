@@ -13,17 +13,17 @@ node {
         app = docker.build("dstubked/docker-test")
     }
     
-    /*stage ('Aqua Scan') {
+    stage ('Aqua Scan') {
         aqua locationType: 'hosted', registry: 'Docker Hub', hostedImage: 'dstubked/docker-test',  notCompliesCmd: '', onDisallowed: 'fail', hideBase: false, showNegligible: false
-    }*/
-    stage('Aqua Scanner CLI') {
+    }
+    /*stage('Aqua Scanner CLI') {
             sh "echo Hello from the shell"
             sh "hostname"
             sh "echo $WORKSPACE"
             sh "echo $JENKINS_HOME"
             sh "docker run -e BUILD_JOB_NAME=ExampleVulnerablePipeline -e BUILD_URL=$BUILD_URL -e BUILD_NUMBER=$BUILD_NUMBER --rm -v /var/run/docker.sock:/var/run/docker.sock registry.aquasec.com/scanner:4.2 scan --host http://aquasec-demo658-vm0.eastus.cloudapp.azure.com --local dstubked/docker-test:latest --no-verify --html --user jenkins_scanner --password P@ssword > results.html"
             archiveArtifacts 'results.html'
-    }
+    }*/
     
     stage('Push image') {
         /* Finally, we'll push the image with two tags:
