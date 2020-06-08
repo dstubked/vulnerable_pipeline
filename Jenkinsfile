@@ -10,11 +10,11 @@ node {
     stage('Build image') {
         /* This builds the actual image */
 
-        app = docker.build("dstubked/docker-test")
+        app = docker.build("dstubked/alpine:non-comply")
     }
     
     stage ('Aqua Scan') {
-        aqua locationType: 'hosted', registry: 'Docker Hub', hostedImage: 'dstubked/docker-test',  notCompliesCmd: '', onDisallowed: 'fail', hideBase: false, showNegligible: false
+        aqua locationType: 'hosted', registry: 'Docker Hub', hostedImage: 'dstubked/alpine:non-comply',  notCompliesCmd: '', onDisallowed: 'fail', hideBase: false, showNegligible: false
     }
     /*stage('Aqua Scanner CLI') {
             sh "echo Hello from the shell"
@@ -25,7 +25,7 @@ node {
             archiveArtifacts 'results.html'
     }*/
     
-    stage('Push image') {
+    /*stage('Push image') {
         /* Finally, we'll push the image with two tags:
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
@@ -34,7 +34,7 @@ node {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
         }
-    }
+    }*/
     
         /*stage('Aqua Scanner CLI') {
             sh "echo Hello from the shell"
