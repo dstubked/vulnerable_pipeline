@@ -14,7 +14,7 @@ node {
     }
     
     stage ('Aqua Scan') {
-        aqua locationType: 'hosted', registry: 'Docker Hub', hostedImage: 'dstubked/alpine:non-comply',  notCompliesCmd: '', onDisallowed: 'fail', hideBase: false, showNegligible: false
+        aqua customFlags: '', hideBase: false, hostedImage: '', localImage: 'dstubked/alpine:non-comply', locationType: 'local', notCompliesCmd: '', onDisallowed: 'fail', policies: '', register: false, registry: '', showNegligible: false
     }
     /*stage('Aqua Scanner CLI') {
             sh "echo Hello from the shell"
